@@ -5,6 +5,12 @@ public void run() {
         System.out.println(
             getName() + " collecting telemetry " + i
         );
+    try {
+    Thread.sleep(800);
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt();
+    return;
+}
     }
 }
 }
