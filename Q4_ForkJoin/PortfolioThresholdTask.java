@@ -14,4 +14,15 @@ public PortfolioThresholdTask(double[] assets, int start, int end, double cap) {
     this.end = end;
     this.cap = cap;
 }
+@Override
+protected void compute() {
+    if (end - start <= THRESHOLD) {
+        for (int i = start; i < end; i++) {
+            if (assets[i] > cap) {
+                assets[i] = assets[i] * 1.05;
+            }
+        }
+        return;
+    }
+}
 }
