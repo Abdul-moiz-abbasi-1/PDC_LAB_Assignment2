@@ -24,6 +24,19 @@ protected Double compute() {
         return total;
     }
 
-    return 0.0;
+int middle = (start + end) / 2;
+
+ParallelRiskCalculator leftTask =
+        new ParallelRiskCalculator(risks, start, middle);
+
+ParallelRiskCalculator rightTask =
+        new ParallelRiskCalculator(risks, middle, end);
+
+leftTask.fork();
+
+double rightResult = rightTask.compute();
+double leftResult = leftTask.join();
+
+return leftResult + rightResult;;
 }
 }
