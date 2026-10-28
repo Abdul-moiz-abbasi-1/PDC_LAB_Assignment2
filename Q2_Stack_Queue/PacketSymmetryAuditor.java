@@ -17,4 +17,16 @@ public boolean isSymmetric(String packet) {
 
     return true;
 }
+public static void main(String[] args) {
+    PacketSymmetryAuditor auditor = new PacketSymmetryAuditor();
+
+    String packet1 = "ABCDCBA";
+    String packet2 = "ABCDEF";
+
+    System.out.println(packet1 + " is symmetric: "
+            + auditor.isSymmetric(packet1));
+
+    System.out.println(packet2 + " is symmetric: "
+            + auditor.isSymmetric(packet2));
+}
 }
