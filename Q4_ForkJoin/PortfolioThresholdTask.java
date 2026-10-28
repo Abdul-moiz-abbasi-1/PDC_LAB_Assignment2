@@ -24,5 +24,14 @@ protected void compute() {
         }
         return;
     }
+    int middle = (start + end) / 2;
+
+PortfolioThresholdTask leftTask =
+        new PortfolioThresholdTask(assets, start, middle, cap);
+
+PortfolioThresholdTask rightTask =
+        new PortfolioThresholdTask(assets, middle, end, cap);
+
+invokeAll(leftTask, rightTask);
 }
 }
