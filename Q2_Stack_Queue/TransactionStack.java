@@ -25,4 +25,15 @@ public char pop() {
     top--;
     return value;
 }
+public char peek() {
+    if (isEmpty()) {
+        return '\0';
+    }
+
+    return stack[top];
+}
+
+public boolean isEmpty() {
+    return top == -1;
+}
 }
