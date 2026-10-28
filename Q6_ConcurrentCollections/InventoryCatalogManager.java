@@ -89,14 +89,16 @@ public void benchmarkConcurrentMap() throws InterruptedException {
     System.out.println("Throughput: "
             + throughput + " operations/second");
 }
-    public static void main(String[] args) {
+public static void main(String[] args) throws InterruptedException {
 
-        InventoryCatalogManager manager = new InventoryCatalogManager();
+    InventoryCatalogManager manager = new InventoryCatalogManager();
 
-        System.out.println("Inventory Catalog Concurrency Benchmark");
-        System.out.println("Products initialized: " + manager.productStock.size());
-        System.out.println("Worker threads: " + WORKER_THREADS);
-        System.out.println("Total operations: " + TOTAL_OPERATIONS);
+    System.out.println("Inventory Catalog Concurrency Benchmark");
+    System.out.println("Products initialized: " + manager.productStock.size());
+    System.out.println("Worker threads: " + WORKER_THREADS);
+    System.out.println("Total operations: " + TOTAL_OPERATIONS);
 
-    }
+    manager.benchmarkSynchronizedMap();
+    manager.benchmarkConcurrentMap();
+}
 }
