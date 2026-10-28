@@ -19,4 +19,16 @@ public void enqueue(char value) {
     queue[rear] = value;
     size++;
 }
+public char dequeue() {
+    if (isEmpty()) {
+        System.out.println("Queue is empty.");
+        return '\0';
+    }
+
+    char value = queue[front];
+    front = (front + 1) % queue.length;
+    size--;
+
+    return value;
+}
 }
