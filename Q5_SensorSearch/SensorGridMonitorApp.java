@@ -26,6 +26,18 @@ System.out.println("Sensor readings per segment: " + segmentSize);
 List<Future<Double>> minResults = new ArrayList<>();
 List<Future<Double>> maxResults = new ArrayList<>();
 
-long startTime = System.nanoTime();   
+long startTime = System.nanoTime(); 
+for (int worker = 0; worker < 4; worker++) {
+    int start = worker * segmentSize;
+    int end = (worker == 3) ? size : start + segmentSize;
+
+    minResults.add(executor.submit(
+        () -> new ParallelMinSearch(sensorData, start, end).processGrid()
+    ));
+
+    maxResults.add(executor.submit(
+        () -> new ParallelMaxSearch(sensorData, start, end).processGrid()
+    ));
+}  
 }
 }
