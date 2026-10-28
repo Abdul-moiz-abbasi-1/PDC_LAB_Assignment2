@@ -43,5 +43,8 @@ System.out.println("Parallel execution time: "
         + (parallelEnd - parallelStart) / 1_000_000.0 + " ms");
 
 pool.shutdown();
+
+System.out.println("Risk totals match: "
+        + (Math.abs(serialTotal - parallelTotal) < 0.000001));
     }
 }
