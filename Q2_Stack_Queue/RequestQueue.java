@@ -9,4 +9,14 @@ public RequestQueue(int capacity) {
     rear = -1;
     size = 0;
 }
+public void enqueue(char value) {
+    if (size == queue.length) {
+        System.out.println("Queue is full.");
+        return;
+    }
+
+    rear = (rear + 1) % queue.length;
+    queue[rear] = value;
+    size++;
+}
 }
