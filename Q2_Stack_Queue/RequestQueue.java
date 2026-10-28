@@ -31,4 +31,7 @@ public char dequeue() {
 
     return value;
 }
+public boolean isEmpty() {
+    return size == 0;
+}
 }
