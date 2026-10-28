@@ -9,4 +9,12 @@ public TradeEvent(String senderId, long timestamp, double basePrice) {
     this.basePrice = basePrice;
 }
 
+
+public void dispatch() {
+    System.out.println("Generic Trade Event");
+    System.out.println("Sender ID: " + senderId);
+    System.out.println("Timestamp: " + timestamp);
+    System.out.println("Base Price: " + basePrice);
+}
+
 }
