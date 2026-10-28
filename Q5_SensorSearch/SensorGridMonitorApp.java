@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Future;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -18,5 +21,11 @@ int segmentSize = size / 4;
 
 System.out.println("Number of worker threads: 4");
 System.out.println("Sensor readings per segment: " + segmentSize);
-    }
+ ExecutorService executor = Executors.newFixedThreadPool(4);
+
+List<Future<Double>> minResults = new ArrayList<>();
+List<Future<Double>> maxResults = new ArrayList<>();
+
+long startTime = System.nanoTime();   
+}
 }
