@@ -4,6 +4,14 @@ import java.util.concurrent.Executors;
 public class SensorGridMonitorApp {
 
     public static void main(String[] args) {
+    
+int size = 50000;
+double[] sensorData = new double[size];
 
+for (int i = 0; i < size; i++) {
+    sensorData[i] = 20 + Math.random() * 80;
+}
+
+System.out.println("Total sensor readings: " + size);
     }
 }
