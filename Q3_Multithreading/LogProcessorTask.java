@@ -6,6 +6,13 @@ public void run() {
             Thread.currentThread().getName()
             + " processing log " + i
         );
+    
+        try {
+    Thread.sleep(1000);
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt();
+    return;
+}
     }
 }
 }
