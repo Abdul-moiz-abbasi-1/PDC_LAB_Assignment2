@@ -46,5 +46,22 @@ pool.shutdown();
 
 System.out.println("Risk totals match: "
         + (Math.abs(serialTotal - parallelTotal) < 0.000001));
+double cap = 5000.0;
+
+ForkJoinPool thresholdPool = new ForkJoinPool();
+
+long adjustmentStart = System.nanoTime();
+
+thresholdPool.invoke(
+        new PortfolioThresholdTask(assets, 0, size, cap)
+);
+
+long adjustmentEnd = System.nanoTime();
+
+System.out.println("Portfolio threshold adjustment completed.");
+System.out.println("Assets adjusted: "
+        + (adjustmentEnd - adjustmentStart) / 1_000_000.0 + " ms");
+
+thresholdPool.shutdown();
     }
 }
