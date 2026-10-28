@@ -53,7 +53,7 @@ public class InventoryCatalogManager {
             + elapsedSeconds * 1000 + " ms");
     System.out.println("Throughput: "
             + throughput + " operations/second");
-}\
+}
 public void benchmarkConcurrentMap() throws InterruptedException {
 
     Map<String, Integer> concurrentStock =
