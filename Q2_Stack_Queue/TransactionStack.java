@@ -15,4 +15,14 @@ public void push(char value) {
     top++;
     stack[top] = value;
 }
+public char pop() {
+    if (isEmpty()) {
+        System.out.println("Stack is empty.");
+        return '\0';
+    }
+
+    char value = stack[top];
+    top--;
+    return value;
+}
 }
