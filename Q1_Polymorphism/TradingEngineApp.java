@@ -13,5 +13,10 @@ TradeEvent event2 = new FIXOrderEvent(
 
 event2.dispatch();
 
+TradeEvent event3 = new ReutersQuoteEvent(
+    "RTR-001", System.currentTimeMillis(), 100.0, 99.5, 100.5
+);
+
+event3.dispatch();
     }
 }
